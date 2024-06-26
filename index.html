@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <html lang="en">
 
 <head>
@@ -23,9 +24,10 @@
         }
 
         header img {
-            position: absolute;
+            padding: 15px 15px;
+            /*position: absolute;
             left: 20px;
-            top: 10px;
+            top: 10px;*/
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -50,8 +52,15 @@
 
         .container {
             width: 80%;
+            min-height: 400px;
             margin: 30px auto;
+            background-color: #fff;
         }
+
+        /*h1 {
+            padding-left: 120px;
+
+        }*/
 
         .about,
         .portfolio,
@@ -79,44 +88,40 @@
             margin-right: 10px;
         }
 
+        .div-header {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="index.html">
-            <img src="img/Foto.png" alt="Home">
-        </a>
-        <h1>Welcome to My Programming Portfolio and Blog</h1>
+        <div class="div-header">
+            <div>
+                <img src="img/Foto.png" alt="Home" name="index" id="img1">
+            </div>
+
+            <div style="padding-right: 15px;">
+                <h1>Welcome to my Programming Portfolio and Blog</h1>
+            </div>
+        </div>
     </header>
-    <nav>
-        <a href="#about.html">About Me</a>
+    <nav style="text-align: center;">
+        <!-- <a href="#about.html">About Me</a>
         <a href="#portfolio.html">Portfolio</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html">Blog</a> -->
+        <button id="button1" name="about">Load Section 1</button>
+        <button id="button2" name="blog">Load Section 2</button>
+        <button id="button3" name="portfolio">Load Section 3</button>
     </nav>
-    <div class="container">
-        <section id="about" class="about">
-            <h2>Welcome</h2>
-            <p>Hello, my name is Ronaldo Battisti. I'm a brazilian engineer and a programmer enthusiast and 
-            i am using this webpage to improove my skills as a fullstack developer and to show recruiters what 
-            am I able to do.
-            <br><br>
-            Feel free to navigate throught the site and discover a little more about me.
-            <br><br>
-            If needed, use the links disponible in the footer to contact me.
-            </p>
-        </section>
-        <section id="portfolio" class="portfolio">
-            <h2>My Programming Portfolio</h2>
-            <p>Here you can find some of the projects I have worked on:</p>
-            <p>Slow down, I'm developing it yet</p>
-            <!-- <ul>
-                <li>Project 1: Description and link to project</li>
-                <li>Project 2: Description and link to project</li>
-                <li>Project 3: Description and link to project</li>
-            </ul>-->
-        </section>
+
+    <div class="container" id="main-content">
+        <div>
+            <p>Welcome to my website. Click the buttons below to change this content.</p>
+        </div>
     </div>
+
     <footer class="footer">
         <table>
             <tr>
@@ -127,12 +132,43 @@
             <tr>
                 <td>
                     <a href="https://wa.me/5554999256437"><i class="bi bi-whatsapp icon-large"></i></href></a>
-                    <a href="https://www.linkedin.com/in/ronaldo-battisti-258190142/"><i class="bi bi-linkedin icon-large"></i></href></a>
-                    <a href="https://www.instagram.com/ronaldo_batt/"><i class="bi bi-instagram icon-large"></i></href></a>
+                    <a href="https://www.linkedin.com/in/ronaldo-battisti-258190142/"><i
+                            class="bi bi-linkedin icon-large"></i></href></a>
+                    <a href="https://www.instagram.com/ronaldo_batt/"><i class="bi bi-instagram icon-large"></i></href>
+                    </a>
+                    <a href="https://github.com/ronaldobattisti"><i class="bi bi-github icon-large"></i></href></a>
+                    <a href="mailto: ronaldo.battisti@hotmail.com"><i class="bi bi-envelope icon-large"></i>
+                        </href></a>
                 </td>
             </tr>
         </table>
     </footer>
 </body>
+
+<script>
+
+    //Dispara quando a tela termina de ser carregada
+    $(function () {
+        //Seletor de
+        $("button").on("click", function () {
+            if ($("#main-content > div").attr('name') != this.name)
+                loadContent(this.name + ".html");
+        });
+
+        $("#img1").on("click", function () {
+            window.location.href = this.name + ".html";
+        })
+    });
+
+    function loadContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-content').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading content:', error));
+    }
+
+</script>
 
 </html>
