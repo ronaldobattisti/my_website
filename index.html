@@ -35,6 +35,8 @@
 
         nav {
             display: flex;
+            height: 80px;
+            align-items: center;
             justify-content: center;
             background-color: #444;
         }
@@ -92,6 +94,24 @@
             display: flex;
             align-items: center;
         }
+
+        .button {
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            height: 25lepx;
+            padding: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            background-color: transparent;
+            border: 2px solid;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: all 300ms ease-in-out;
+        }
     </style>
 </head>
 
@@ -102,18 +122,20 @@
                 <img src="img/Foto.png" alt="Home" name="index" id="img1">
             </div>
 
-            <div style="padding-right: 15px;">
+            <div style="
+            position: relative;
+            padding-right: 15px;
+            justify-content: center;">
                 <h1>Welcome to my Programming Portfolio and Blog</h1>
             </div>
         </div>
     </header>
-    <nav style="text-align: center;">
-        <!-- <a href="#about.html">About Me</a>
-        <a href="#portfolio.html">Portfolio</a>
-        <a href="blog.html">Blog</a> -->
-        <button id="button1" name="about">Load Section 1</button>
-        <button id="button2" name="blog">Load Section 2</button>
-        <button id="button3" name="portfolio">Load Section 3</button>
+    <nav>
+        <div class="nav">
+            <a href id="button1" name="about" class="button">About</a>
+            <a href id="button2" name="blog" class="button">Blog</a>
+            <a href id="button3" name="portfolio" class="button">Portifolio</a>
+        </div>
     </nav>
 
     <div class="container" id="main-content">
@@ -150,7 +172,8 @@
     //Dispara quando a tela termina de ser carregada
     $(function () {
         //Seletor de
-        $("button").on("click", function () {
+        $("a.button").on("click", function (event) {
+            event.preventDefault();
             if ($("#main-content > div").attr('name') != this.name)
                 loadContent(this.name + ".html");
         });
