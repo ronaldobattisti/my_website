@@ -1,4 +1,82 @@
-<div name="about">
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<html lang="en">
 
-    <p> sadfasdf</p>
-</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronaldo Battisti</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="load-content.js" defer></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container" id="main-content">
+        <div>
+            <p>About.</p>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+<script>
+
+    //Dispara quando a tela termina de ser carregada
+    $(function () {
+        //Seletor de
+        $("a.button").on("click", function (event) {
+            event.preventDefault();
+            if ($("#main-content > div").attr('name') != this.name)
+                loadContent(this.name + ".html");
+        });
+
+        $("#img1").on("click", function () {
+            window.location.href = this.name + ".html";
+        })
+    });
+
+    function loadContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('main-content').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading content:', error));
+    }
+
+</script>
+
+</html>
+
+<script>
+
+    function loadContent() {
+        // Load the CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'styles.css'; // path to your CSS file
+        document.head.appendChild(link);
+
+        // Load the header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // Load the footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadContent);
+
+</script>
