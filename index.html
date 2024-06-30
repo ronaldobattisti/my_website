@@ -15,7 +15,7 @@
 
     <div class="container" id="main-content">
         <div>
-            <p>Welcome to my website. Click the buttons below to change this content.</p>
+            <p>Welcome to my website. Click the buttons above to change this content.</p>
         </div>
     </div>
 
@@ -23,8 +23,10 @@
 
 </body>
 
-<script>
 
+</html>
+
+<script>
     //Dispara quando a tela termina de ser carregada
     $(function () {
         //Seletor de
@@ -33,12 +35,12 @@
             if ($("#main-content > div").attr('name') != this.name)
                 loadContent(this.name + ".html");
         });
-
+    
         $("#img1").on("click", function () {
             window.location.href = this.name + ".html";
         })
     });
-
+    
     function loadContent(url) {
         fetch(url)
             .then(response => response.text())
@@ -47,12 +49,6 @@
             })
             .catch(error => console.error('Error loading content:', error));
     }
-
-</script>
-
-</html>
-
-<script>
 
     function loadContent() {
         // Load the CSS
