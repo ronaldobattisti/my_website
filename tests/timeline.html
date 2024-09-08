@@ -1,0 +1,102 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .timeline-container {
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .timeline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        height: 5px;
+        background-color: #000000;
+        margin: 20px 0;
+    }
+
+    .timeline-point {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border: 4px solid #3498db;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .timeline-point:hover {
+        background-color: #3498db;
+        color: white;
+    }
+
+    .timeline-start,
+    .timeline-end {
+        position: absolute;
+        top: -25px;
+        color: #3498db;
+        font-weight: bold;
+    }
+
+    .timeline-start {
+        left: 0;
+    }
+
+    .timeline-end {
+        right: 0;
+    }
+
+    .event-details {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #3498db;
+        display: none;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Horizontal Timeline</title>
+</head>
+
+<body>
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-point" data-date="January 1, 2024" onclick="showEventDetails(this)"></div>
+            <div class="timeline-point" data-date="February 1, 2024" onclick="showEventDetails(this)"></div>
+            <!-- Add more timeline points as needed -->
+        </div>
+        <div class="timeline-start">Start Date</div>
+        <div class="timeline-end">End Date</div>
+    </div>
+    <div id="event-details" class="event-details"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+<script>
+
+    function showEventDetails(element) {
+        var date = element.getAttribute('data-date');
+        var eventDetails = document.getElementById('event-details');
+        eventDetails.innerHTML = '<h2>Event Details</h2><p>Date: ' + date + '</p>';
+        eventDetails.style.display = 'block';
+    }
+
+
+</script>

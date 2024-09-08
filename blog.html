@@ -14,6 +14,14 @@
 <body>
     <div id="header-placeholder"></div>
 
+    <!--<button onclick="openPopup()">Open Popup</button>
+
+    <div id="popup" class="popup">
+        <button onclick="closePopup()">Close</button>
+        <iframe src="blog_publications\1- lorem\Lorem ipsum dolor sit amet.htm"></iframe>
+    </div>-->
+
+
     <div class="container" id="main-content">
 
         <h2>Welcome to my Blog</h2>
@@ -23,39 +31,39 @@
             <a href="#" class="article-link" data-article-id="1">Load Article</a>
         </article>
         <article>
-            <h3>2 - Do you know what is the connection between America and Aphrodite?</h3>
+            <h3>2 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
             <a href="#" class="article-link" data-article-id="2">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>3 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
             <a href="#" class="article-link" data-article-id="3">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>4 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
-            <a href="#" class="article-link" data-article-id="3">Read more</a>
+            <a href="#" class="article-link" data-article-id="4">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>5 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
-            <a href="#" class="article-link" data-article-id="3">Read more</a>
+            <a href="#" class="article-link" data-article-id="5">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>6 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
-            <a href="#" class="article-link" data-article-id="3">Read more</a>
+            <a href="#" class="article-link" data-article-id="6">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>7 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
-            <a href="#" class="article-link" data-article-id="3">Read more</a>
+            <a href="#" class="article-link" data-article-id="7">Read more</a>
         </article>
         <article>
-            <h3>3 - What were the benefits raised by the spatial run?</h3>
+            <h3>8 - Lorem ipsum dolor sit amet</h3>
             <p>Published 23/06/2024</p>
-            <a href="#" class="article-link" data-article-id="3">Read more</a>
+            <a href="#" class="article-link" data-article-id="8">Read more</a>
         </article>
     </div>
 
@@ -130,6 +138,7 @@
         var popup = document.getElementById("popup");
         var popupTitle = document.getElementById("popupTitle");
         var popupText = document.getElementById("popupText");
+        var popupContent = "blog_publications\\1- lorem\\" + document.getElementById("data-article-id");
         var closePopup = document.getElementById("closePopup");
 
         if (!popup || !popupTitle || !popupText || !closePopup) {
@@ -137,10 +146,10 @@
             return;
         }
 
-        var articles = {
+        var article = {
             1: {
                 title: "1 - Lorem ipsum dolor sit amet",
-                content: "Lorem ipsum dolor sit amet"
+                content: "blog_publications/1- lorem/Lorem ipsum dolor sit amet.htm"
             },
             2: {
                 title: "Article 2",
@@ -164,9 +173,17 @@
                 }
 
                 popupTitle.innerText = article.title;
-                popupText.innerText = article.content;
 
-                popup.style.display = "block";
+                fetch(article.content)
+                    .then(response => response.text())
+                    .then(data => {
+                        popupText.innerHTML = data;
+                        popup.style.display = "block";
+                    })
+                    .catch(error => {
+                        console.error('Error loading article content:', error);
+                        popupText.innerText = "Error loading article content.";
+                    });
             });
         });
 
