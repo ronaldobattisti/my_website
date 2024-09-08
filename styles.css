@@ -3,6 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    min-width: 600px;
+    padding-bottom: 100px;
 }
 
 /*Header Section*/
@@ -12,7 +14,6 @@ header {
     padding: 10px 0;
     text-align: center;
     position: relative;
-    min-width: 600px;
 }
 
 header img {
@@ -32,12 +33,14 @@ header img {
 }
 
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #5f5f5f;
+    /*color: white;*/
     padding: 16px;
     font-size: 16px;
+    box-shadow: none;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -52,11 +55,11 @@ header img {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left: -39px;
+    border: 1px;
 }
 
 /* Links inside the dropdown */
@@ -67,11 +70,6 @@ header img {
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
@@ -79,12 +77,13 @@ header img {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #5f5f5f;
 }
 
 /*End header*/
 
 .footer {
+    position: fixed;
     display: flex;
     text-align: left;
     padding: 10px;
@@ -126,9 +125,19 @@ header img {
 
 /* Working with pop-up window */
 
+.container {
+    display: block;
+    background-color: #acacac;
+    margin: 30px;
+    padding: 10px;
+    /*margin-bottom: 100px;*/
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+}
+
 .article-container {
+    display: flex;
     width: 95%;
-    /*min-height: 500px;*/
     height: 100%;
     margin: 30px auto;
     background-color: #fff;
@@ -145,30 +154,4 @@ header img {
     background-color: rgba(0, 0, 0, 0.5);
     /* Black background with opacity */
     z-index: 1;
-}
-
-.popup-content {
-    position: relative;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    cursor: pointer;
 }
