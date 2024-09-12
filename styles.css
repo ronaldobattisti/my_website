@@ -8,6 +8,8 @@ body {
 }
 
 /*Header Section*/
+
+/*Header Section*/
 header {
     background-color: #333;
     color: #fff;
@@ -26,6 +28,7 @@ header img {
 
 .div-header-title {
     position: absolute;
+    text-size-adjust: auto;
     padding-right: 15px;
     top: 50%;
     left: 50%;
@@ -34,7 +37,6 @@ header img {
 
 .dropbtn {
     background-color: #5f5f5f;
-    /*color: white;*/
     padding: 16px;
     font-size: 16px;
     box-shadow: none;
@@ -154,4 +156,8 @@ header img {
     background-color: rgba(0, 0, 0, 0.5);
     /* Black background with opacity */
     z-index: 1;
+}
+
+.tags {
+    font-size: small;
 }

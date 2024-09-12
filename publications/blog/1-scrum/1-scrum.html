@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronaldo Battisti</title>
-    <link rel="icon" href="img/MainIcon.png" sizes="32x32">
+    <link rel="icon" href="../../../img/MainIcon.png" sizes="32x32">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -15,31 +15,8 @@
     <header id="header-placeholder"></header>
 
     <div class="container" id="main-content">
-        <h2>Welcome to my Portifolio</h2>
-        <article>
-            <h3>1 - <a href="#" class="article-link">My website</a></h3>
-            <p>Published 11/09/2024</p>
-            <p class="tags">Tags: HTML, CSS, JavaScript, Hosting</p>
-        </article>
-
-        <article></article>
-        <h3>2 - <a href="#" class="article-link">Hotel Registration System</a></h3>
-        <p>Published 11/09/2024</p>
-        <p class="tags">Tags: C#, MySQL, Hosting, Views, CRUD</p>
-        </article>
-
-        <article></article>
-        <h3>3 - <a href="#" class="article-link">Parts color property automation in SolidWorks with C#</a></h3>
-        <p>Published 11/09/2024</p>
-        <p class="tags">Tags: C#, SolidWorks, Automation</p>
-        </article>
-
-        <article></article>
-        <h3>4 - <a href="#" class="article-link">PDF's drawings saving automation in SolidWorks with C#</a></h3>
-        <p>Published 11/09/2024</p>
-        <p class="tags">Tags: C#, SolidWorks, Automation</p>
-        </article>
-
+        <h2>What are the scrum ceremonies and who participates?</h2>
+        <p>During my studies ...</p>
     </div>
 
     <footer id="footer-placeholder"></footer>
@@ -81,18 +58,18 @@
         // Load the CSS
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = 'styles.css'; // path to your CSS file
+        link.href = '../../../styles.css'; // path to your CSS file
         document.head.appendChild(link);
 
         // Load the header
-        fetch('header.html')
+        fetch('../../../header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
             });
 
         // Load the footer
-        fetch('footer.html')
+        fetch('../../../footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
