@@ -161,3 +161,10 @@ header img {
 .tags {
     font-size: small;
 }
+
+.blogMedia {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}

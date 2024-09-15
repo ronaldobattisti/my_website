@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronaldo Battisti</title>
+    <link rel="icon" href="../../../img/MainIcon.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="../../../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="container" id="main-content" style="text-align: justify;">
+        <h2>Parts color property automation in SolidWorks with C#</h2>
+        <p>This project was my first dedicated effort to solve a real-world client demand. The client, a well-known
+            machine developer company in southern Brazil, had a team of highly skilled engineers who, despite their
+            expertise, occasionally had to perform simple manual alterations on projects&mdash;tasks that consumed a lot
+            of their time. I was brought in to collaborate on developing a solution to automate these repetitive tasks.
+        </p>
+        <p>The solution discussed in this article was necessary because the client had numerous projects created by
+            different engineers, and when coloring parts intended for painting, they often chose random colors from the
+            palette. This inconsistency resulted in non-standard color schemes in the assemblies, leading to an
+            unappealing appearance when the machines were rendered. Consequently, the engineers had to open each part
+            individually to review and adjust its color in the palette, which risked further inconsistencies.</p>
+        <p>In summary, the steps the engineers must take when a color inconsistency is found are as follows: they open
+            the part, check the color code in the Custom Property Tab, select what they guess is the correct color,
+            paint the part, save it, close it, and then move on to the next one. Below is an example of a part with the
+            Custom Property Tab showing the color code:</p>
+        <img class="blogMedia" src="../3-partColorAutomation/Custom Properties Example.png"
+            alt="Custom Properies Example">
+        <p>Now, assuming the information is correctly filled in the Custom Property, the only action needed is to run
+            the macro, as shown below:</p>
+        <video class="blogMedia" controls>
+            <source src="../3-partColorAutomation/AddIn Working Example.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>The manual process takes about 28 seconds per part, while the automation reduces this to 3 seconds per item,
+            resulting in a time savings of 25 seconds per part. Considering that their projects often contain over 400
+            parts, this feature proves to be a highly useful solution.</p>
+        <p>In this project, I had to explore many features of SolidWorks and learn how to implement them in an AddIn.
+            Here are some key challenges and learnings I encountered:</p>
+        <ul>
+            <li>
+                <p><strong>Establishing a Connection with SolidWorks</strong>: After several unsuccessful attempts to
+                    connect the API to SolidWorks, I decided to use the Xarial XCad framework to bridge the connection.
+                    Although the framework's command options were limited, I used it solely for the connection, while
+                    the rest of the functionality was built using native SolidWorks commands and the necessary DLLs.</p>
+            </li>
+            <li>
+                <p><strong>Registering the API</strong>: For the API to be recognized by SolidWorks, it needed to be
+                    registered in the Windows Registry (Regedit). While this was not a complex task, it was a new
+                    experience for me, as I had never done this before.</p>
+            </li>
+            <li>
+                <p><strong>Limited Forum Resources</strong>: I was surprised by how few ongoing projects existed in this
+                    area. For example, I encountered an issue when trying to open a part in resolved mode inside an
+                    assembly using the <code>OpenDoc6</code> method, which didn&rsquo;t work as expected. After several
+                    attempts, I decided to run the same code in VBA (using SolidWorks&rsquo; built-in compiler), and it
+                    worked perfectly. I sought help on StackOverflow, but no one could offer a solution. Eventually, I
+                    found that setting the part to lightweight mode before using the open command solved the issue.
+                    Though not ideal, it was effective.</p>
+            </li>
+            <li>
+                <p><strong>Too Many Options</strong>: During the development process, I discovered numerous ways to
+                    perform the same task and encountered many interfaces that either allowed or restricted object
+                    casting for parts of these tasks. Although this heterogeneity required extra effort, it ultimately
+                    pushed me to write cleaner and more organized code.</p>
+            </li>
+            <li>
+                <p><strong>Extensive Documentation</strong>: While SolidWorks provides extensive documentation, I found
+                    that &ldquo;extensive&rdquo; doesn&rsquo;t necessarily mean &ldquo;complete&rdquo; or &ldquo;easy to
+                    use.&rdquo; Each new command or function I needed to implement required significant time to research
+                    and understand. To streamline future work, I documented key functionalities within my code to make
+                    subsequent searches easier.</p>
+            </li>
+        </ul>
+        <p>Finally, .</p>
+        <p>Note:</p>
+        <ul>
+            <li>Some informations are hided because of their confidentiality;</li>
+            <li>Te AddIn version showed in the videos is one used during the validations, and not the one delivered to
+                the costumer;</li>
+            <li>If some of the parts aren't with the color field filled, the macro will open the part and close without
+                save.</li>
+        </ul>
+    </div>
+
+    <footer id="footer-placeholder"></footer>
+
+</body>
+
+</html>
+
+<script>
+    function loadContent() {
+        // Load the header
+        fetch('../../../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // Load the footer
+        fetch('../../../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    }
+    document.addEventListener('DOMContentLoaded', loadContent);
+</script>
