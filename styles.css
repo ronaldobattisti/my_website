@@ -49,7 +49,7 @@ header img {
 .dropdown {
     right: 0;
     position: absolute;
-    padding: 16px;
+    padding: 50px;
     display: inline-block;
 }
 
@@ -167,4 +167,8 @@ header img {
     width: 100%;
     height: auto;
     text-align: center;
+}
+
+.figCaption{
+    font-size: 70%;
 }
