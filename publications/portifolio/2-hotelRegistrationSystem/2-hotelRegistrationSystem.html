@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ronaldo Battisti</title>
+    <link rel="icon" href="img/MainIcon.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="../../../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="container" id="main-content" style="text-align: justify;">
+        <h2>Registration System</h2>
+        <p>My first introduction to OOP (Object-Oriented Programming) was during an undergraduate course called,
+            appropriately, Object-Oriented Programming. In this course, we learned and practiced the key concepts of
+            OOP. Before that, my programming experience was mainly with the C language, where I developed automation
+            solutions using microcontrollers and the Arduino platform to prototype automation systems. I also used
+            MATLAB for plotting graphs and developing controllers for various applications.</p>
+        <p>This first exposure to OOP was very successful, and it sparked my interest in the language and what I could
+            achieve with it. I began learning more on my own, taking courses and working on projects. Through
+            conversations with developer friends, I discovered C# and became fascinated by its versatility, which
+            motivated me to dive deeper into learning it. This led to the project that follows:</p>
+        <p>As I already had some concepts from Java, I decided to explore C# by creating a system that simulates a
+            registration program with full CRUD (Create, Read, Update, Delete) functionality. Initially, I set up a
+            local server using Apache on my machine to begin development and testing. Later, I hosted the database
+            online using my website's domain to make the application more realistic.</p>
+        <p>Below is a screenshot of the login page, where credential validation is implemented:</p>
+        <figure>
+            <video class="blogMedia" controls>
+                <source src="../2-hotelRegistrationSystem/Login.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption class="figCaption">Media 1: Automation demonstration with sample assembly - created by author.
+            </figcaption>
+        </figure>
+        <p>Here is the registration screen showcasing all the CRUD operations:</p>
+        <figure>
+            <video class="blogMedia" controls>
+                <source src="../2-hotelRegistrationSystem/System.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption class="figCaption">Media 1: Automation demonstration with sample assembly - created by author.
+            </figcaption>
+        </figure>
+        <h3>Key Learnings from This Project:</h3>
+        <ul>
+            <li><strong>Creating an Online Database Hosted on a Domain:</strong> This was a new and challenging
+                experience for me, but I now have a clear understanding of the process.</li>
+            <li><strong>SQL:</strong> Although I had worked with SQL queries before, this project taught me how to
+                interact with the backend more effectively, handling queries with multiple parameters.</li>
+            <li><strong>MySQL:</strong> I used the MySQL framework in this project to access and manage data, learning
+                its key features along the way.</li>
+            <li><strong>Windows Forms:</strong> I enhanced my knowledge of Windows Forms, particularly in accessing and
+                utilizing its methods.</li>
+        </ul>
+        <p>Overall, this was a very interesting and rewarding project that gave me a solid foundation and a clearer
+            understanding of how to apply these skills in future applications.</p>
+    </div>
+
+    <footer id="footer-placeholder"></footer>
+
+</body>
+
+</html>
+
+<script>
+    function loadContent() {
+        // Load the header
+        fetch('../../../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // Load the footer
+        fetch('../../../footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    }
+    document.addEventListener('DOMContentLoaded', loadContent);
+</script>

@@ -9,7 +9,8 @@ body {
 /*Header Section*/
 
 /*Header Section*/
-header, #header-container {
+header,
+#header-container {
     background-color: #333333;
     box-shadow: none;
     color: #fff;
@@ -86,6 +87,15 @@ header img {
     .col.text-center {
         max-width: 300px;
     }
+
+    .dropdown-content {
+        display: none;
+        position: relative;
+        z-index: 1;
+        left: 0px;
+        border: 1px;
+        width: 120px;
+    }
 }
 
 
@@ -114,8 +124,9 @@ header img {
     position: absolute;
     /*background-color: #f9f9f9;*/
     z-index: 1;
-    left: -39px;
+    left: -47px;
     border: 1px;
+    width: 120px;
 }
 
 /* Links inside the dropdown */
@@ -217,7 +228,7 @@ header img {
 }
 
 .blogMedia {
-    max-width: 1000px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     text-align: center;
